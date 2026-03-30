@@ -1,1 +1,30 @@
-node_modules
+# dependencies
+node_modules/
+
+# environment variables (VERY IMPORTANT)
+.env
+.env.*
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# build output
+dist/
+build/
+
+# drizzle generated files (optional)
+drizzle/*.sql
+drizzle/meta/
+
+# IDE files
+.vscode/
+.idea/
+
+# cache
+.cache/
