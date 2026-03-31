@@ -10,9 +10,31 @@ const app = express();
 
 app.use(helmet());
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use((req, res, next) => {
+  if (req.body !== undefined) return next();
+
+  const contentType = req.headers['content-type'] || '';
+  if (!contentType || contentType.includes('text') || contentType.includes('json')) {
+    let rawData = '';
+    req.setEncoding('utf8');
+    req.on('data', chunk => { rawData += chunk; });
+    req.on('end', () => {
+      if (rawData.length === 0) return next();
+      try {
+        req.body = JSON.parse(rawData);
+      } catch (err) {
+        req.body = rawData;
+      }
+      next();
+    });
+    req.on('error', next);
+  } else {
+    next();
+  }
+});
 app.use(cookieParser());
 app.use(cors());
-app.use(express.urlencoded({ extended: true }));
 app.use(morgan('combined', { stream: { write: message => logger.info(message.trim()) } }));
 
 app.get('/', (req, res) => {
