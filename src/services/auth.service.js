@@ -11,6 +11,41 @@ export const hashPassword = async (password) => {
     }
 }
 
+export const comparePassword = async (password, hashedPassword) => {
+    try {
+        return await bcrypt.compare(password, hashedPassword);
+    } catch (err) {
+        logger.error('Error comparing password', err);
+        throw new Error('Failed to compare password');
+    }
+}
+
+export const authenticateUser = async (email, password) => {
+    try {
+        const existingUsers = await database.sql.query(
+            'select id, name, email, password, role from users where email = $1 limit 1',
+            [email]
+        );
+        if (existingUsers.length === 0) {
+            throw new Error('Invalid credentials');
+        }
+
+        const user = existingUsers[0];
+        const isPasswordValid = await comparePassword(password, user.password);
+        if (!isPasswordValid) {
+            throw new Error('Invalid credentials');
+        }
+
+        return user;
+    } catch (err) {
+        logger.error('Error authenticating user', err);
+        if (err.message === 'Invalid credentials') {
+            throw err;
+        }
+        throw new Error('Failed to authenticate user');
+    }
+}
+
 export const createUser = async (name, email, password, role = 'user') => {
     try {
         const existingUsers = await database.sql.query(
