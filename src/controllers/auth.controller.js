@@ -71,7 +71,7 @@ export const signIn = async (req, res, next) => {
     cookies.set(res, {}, 'token', token);
 
     logger.info(`User signed in with email: ${email}`);
-    res.status(200).json({ message: 'Signed in successfully', user: { id: user.id, email: user.email, name: user.name, role: user.role } });
+    res.status(200).json({ message: 'User Signed in Successfully', user: { id: user.id, email: user.email, name: user.name, role: user.role } });
   } catch (err) {
     logger.error('Error during sign-in', err);
     if (err.message === 'Invalid credentials') {

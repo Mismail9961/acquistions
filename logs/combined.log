@@ -50,3 +50,34 @@
 {"level":"info","message":"User created with email: arshad@gmail.com, name: arshad, role: user","service":"acquisition-api"}
 {"level":"info","message":"User signed up with email: arshad@gmail.com, name: arshad, role: user","service":"acquisition-api"}
 {"level":"info","message":"::1 - - [31/Mar/2026:20:21:44 +0000] \"POST /api/auth/sign-up HTTP/1.1\" 201 112 \"-\" \"PostmanRuntime/7.39.1\"","service":"acquisition-api"}
+{"level":"info","message":"::1 - - [03/Apr/2026:07:51:40 +0000] \"GET /api/auth/sign-in HTTP/1.1\" 404 155 \"-\" \"PostmanRuntime/7.39.1\"","service":"acquisition-api"}
+{"level":"info","message":"::1 - - [03/Apr/2026:07:52:02 +0000] \"GET /api/auth/sign-in HTTP/1.1\" 404 155 \"-\" \"PostmanRuntime/7.39.1\"","service":"acquisition-api"}
+{"level":"error","message":"Error authenticating user Invalid credentials","service":"acquisition-api","stack":"Error: Invalid credentials\n    at authenticateUser (file:///home/sheikh-muhammad-ismail/acquistions/src/services/auth.service.js:36:19)\n    at async signIn (file:///home/sheikh-muhammad-ismail/acquistions/src/controllers/auth.controller.js:68:18)"}
+{"level":"error","message":"Error during sign-in Invalid credentials","service":"acquisition-api","stack":"Error: Invalid credentials\n    at authenticateUser (file:///home/sheikh-muhammad-ismail/acquistions/src/services/auth.service.js:36:19)\n    at async signIn (file:///home/sheikh-muhammad-ismail/acquistions/src/controllers/auth.controller.js:68:18)"}
+{"level":"info","message":"::1 - - [03/Apr/2026:07:53:28 +0000] \"POST /api/auth/sign-in HTTP/1.1\" 401 37 \"-\" \"curl/8.5.0\"","service":"acquisition-api"}
+{"level":"error","message":"Error creating user User with this email already exists","service":"acquisition-api","stack":"Error: User with this email already exists\n    at createUser (file:///home/sheikh-muhammad-ismail/acquistions/src/services/auth.service.js:56:19)\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at async signUp (file:///home/sheikh-muhammad-ismail/acquistions/src/controllers/auth.controller.js:31:18)"}
+{"level":"error","message":"Error during sign-up User with this email already exists","service":"acquisition-api","stack":"Error: User with this email already exists\n    at createUser (file:///home/sheikh-muhammad-ismail/acquistions/src/services/auth.service.js:56:19)\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at async signUp (file:///home/sheikh-muhammad-ismail/acquistions/src/controllers/auth.controller.js:31:18)"}
+{"level":"info","message":"::1 - - [03/Apr/2026:07:53:55 +0000] \"POST /api/auth/sign-up HTTP/1.1\" 409 31 \"-\" \"curl/8.5.0\"","service":"acquisition-api"}
+{"level":"info","message":"::1 - - [03/Apr/2026:07:55:38 +0000] \"GET /api/auth/sign-in HTTP/1.1\" 404 155 \"-\" \"PostmanRuntime/7.39.1\"","service":"acquisition-api"}
+{"level":"error","message":"Error authenticating user Invalid credentials","service":"acquisition-api","stack":"Error: Invalid credentials\n    at authenticateUser (file:///home/sheikh-muhammad-ismail/acquistions/src/services/auth.service.js:36:19)\n    at async signIn (file:///home/sheikh-muhammad-ismail/acquistions/src/controllers/auth.controller.js:68:18)"}
+{"level":"error","message":"Error during sign-in Invalid credentials","service":"acquisition-api","stack":"Error: Invalid credentials\n    at authenticateUser (file:///home/sheikh-muhammad-ismail/acquistions/src/services/auth.service.js:36:19)\n    at async signIn (file:///home/sheikh-muhammad-ismail/acquistions/src/controllers/auth.controller.js:68:18)"}
+{"level":"info","message":"::1 - - [03/Apr/2026:07:58:29 +0000] \"POST /api/auth/sign-in HTTP/1.1\" 401 37 \"-\" \"PostmanRuntime/7.39.1\"","service":"acquisition-api"}
+{"level":"info","message":"::1 - - [03/Apr/2026:08:01:28 +0000] \"POST /api/auth/sign-up HTTP/1.1\" 400 79 \"-\" \"PostmanRuntime/7.39.1\"","service":"acquisition-api"}
+{"level":"info","message":"::1 - - [03/Apr/2026:08:01:44 +0000] \"POST /api/auth/sign-up HTTP/1.1\" 400 197 \"-\" \"PostmanRuntime/7.39.1\"","service":"acquisition-api"}
+{"level":"info","message":"User created with email: farheen@gmail.com, name: Farheen, role: user","service":"acquisition-api"}
+{"level":"info","message":"User signed up with email: farheen@gmail.com, name: Farheen, role: user","service":"acquisition-api"}
+{"level":"info","message":"::1 - - [03/Apr/2026:08:01:49 +0000] \"POST /api/auth/sign-up HTTP/1.1\" 201 114 \"-\" \"PostmanRuntime/7.39.1\"","service":"acquisition-api"}
+{"level":"info","message":"User signed in with email: farheen@gmail.com","service":"acquisition-api"}
+{"level":"info","message":"::1 - - [03/Apr/2026:08:01:59 +0000] \"POST /api/auth/sign-in HTTP/1.1\" 200 111 \"-\" \"PostmanRuntime/7.39.1\"","service":"acquisition-api"}
+{"level":"info","message":"User signed in with email: farheen@gmail.com","service":"acquisition-api"}
+{"level":"info","message":"::1 - - [03/Apr/2026:08:02:08 +0000] \"POST /api/auth/sign-in HTTP/1.1\" 200 111 \"-\" \"PostmanRuntime/7.39.1\"","service":"acquisition-api"}
+{"level":"info","message":"User signed in with email: farheen@gmail.com","service":"acquisition-api"}
+{"level":"info","message":"::1 - - [03/Apr/2026:08:02:30 +0000] \"POST /api/auth/sign-in HTTP/1.1\" 200 111 \"-\" \"PostmanRuntime/7.39.1\"","service":"acquisition-api"}
+{"level":"info","message":"User signed in with email: farheen@gmail.com","service":"acquisition-api"}
+{"level":"info","message":"::1 - - [03/Apr/2026:08:03:28 +0000] \"POST /api/auth/sign-in HTTP/1.1\" 200 116 \"-\" \"PostmanRuntime/7.39.1\"","service":"acquisition-api"}
+{"level":"info","message":"User signed out","service":"acquisition-api"}
+{"level":"info","message":"::1 - - [03/Apr/2026:08:03:56 +0000] \"POST /api/auth/sign-out HTTP/1.1\" 200 37 \"-\" \"PostmanRuntime/7.39.1\"","service":"acquisition-api"}
+{"level":"info","message":"User signed in with email: farheen@gmail.com","service":"acquisition-api"}
+{"level":"info","message":"::1 - - [03/Apr/2026:08:05:24 +0000] \"POST /api/auth/sign-in HTTP/1.1\" 200 116 \"-\" \"PostmanRuntime/7.39.1\"","service":"acquisition-api"}
+{"level":"info","message":"User signed out","service":"acquisition-api"}
+{"level":"info","message":"::1 - - [03/Apr/2026:08:05:34 +0000] \"POST /api/auth/sign-out HTTP/1.1\" 200 37 \"-\" \"PostmanRuntime/7.39.1\"","service":"acquisition-api"}
