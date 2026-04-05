@@ -1,0 +1,5 @@
+# Default `docker compose up` uses the development stack (app + Neon Local).
+# Production: docker compose -f docker-compose.prod.yml up --build
+
+include:
+  - docker-compose.dev.yml

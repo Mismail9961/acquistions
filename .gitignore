@@ -4,6 +4,8 @@ node_modules/
 # environment variables (VERY IMPORTANT)
 .env
 .env.*
+!.env.development
+!.env.production
 
 # logs
 npm-debug.log*
@@ -28,3 +30,6 @@ drizzle/meta/
 
 # cache
 .cache/
+
+# Neon Local branch metadata (optional Docker volume)
+.neon_local/

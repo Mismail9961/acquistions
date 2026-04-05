@@ -1,0 +1,32 @@
+# Dependencies (reinstalled inside the image)
+node_modules
+
+# Environment files (injected at runtime via --env-file or CI secrets)
+.env
+.env.*
+
+# Neon Local branch metadata
+.neon_local
+
+# Version control
+.git
+.gitignore
+
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Build/cache artifacts
+dist
+build
+.cache
+
+# IDE
+.vscode
+.idea
+.DS_Store
+Thumbs.db
+
+# Documentation (not needed in the image)
+DOCKER.md

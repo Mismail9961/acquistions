@@ -1,0 +1,22 @@
+# Production-style run: only the API container. The database is Neon Serverless on Neon Cloud
+# (there is no Neon DB container — connection string points to *.neon.tech).
+#
+# Set secrets in .env.production (or inject DATABASE_URL via your orchestrator).
+# Do not set NEON_LOCAL. Start: docker compose -f docker-compose.prod.yml up --build -d
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: production
+    ports:
+      - "${APP_PORT:-3000}:3000"
+    env_file:
+      - .env.production
+    environment:
+      NODE_ENV: production
+      # Must match the right-hand port in `ports:` below. If .env.production sets PORT to e.g. 8080,
+      # the app would listen on 8080 inside the container while we publish 3000 → nothing on :3000.
+      PORT: "3000"
+    restart: unless-stopped
