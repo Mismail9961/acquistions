@@ -81,3 +81,12 @@
 {"level":"info","message":"::1 - - [03/Apr/2026:08:05:24 +0000] \"POST /api/auth/sign-in HTTP/1.1\" 200 116 \"-\" \"PostmanRuntime/7.39.1\"","service":"acquisition-api"}
 {"level":"info","message":"User signed out","service":"acquisition-api"}
 {"level":"info","message":"::1 - - [03/Apr/2026:08:05:34 +0000] \"POST /api/auth/sign-out HTTP/1.1\" 200 37 \"-\" \"PostmanRuntime/7.39.1\"","service":"acquisition-api"}
+{"level":"info","message":"::ffff:127.0.0.1 - - [08/Apr/2026:19:26:28 +0000] \"GET /health HTTP/1.1\" 200 75 \"-\" \"-\"","service":"acquisition-api"}
+{"level":"info","message":"::ffff:127.0.0.1 - - [08/Apr/2026:19:26:28 +0000] \"GET /api HTTP/1.1\" 200 45 \"-\" \"-\"","service":"acquisition-api"}
+{"level":"info","message":"::ffff:127.0.0.1 - - [08/Apr/2026:19:26:28 +0000] \"GET /nonexistent HTTP/1.1\" 404 28 \"-\" \"-\"","service":"acquisition-api"}
+{"level":"info","message":"::ffff:127.0.0.1 - - [08/Apr/2026:19:28:25 +0000] \"GET /health HTTP/1.1\" 200 75 \"-\" \"-\"","service":"acquisition-api"}
+{"level":"info","message":"::ffff:127.0.0.1 - - [08/Apr/2026:19:28:25 +0000] \"GET /api HTTP/1.1\" 200 45 \"-\" \"-\"","service":"acquisition-api"}
+{"level":"info","message":"::ffff:127.0.0.1 - - [08/Apr/2026:19:28:26 +0000] \"GET /nonexistent HTTP/1.1\" 404 28 \"-\" \"-\"","service":"acquisition-api"}
+{"level":"info","message":"::ffff:127.0.0.1 - - [08/Apr/2026:19:29:21 +0000] \"GET /health HTTP/1.1\" 200 75 \"-\" \"-\"","service":"acquisition-api"}
+{"level":"info","message":"::ffff:127.0.0.1 - - [08/Apr/2026:19:29:21 +0000] \"GET /api HTTP/1.1\" 200 45 \"-\" \"-\"","service":"acquisition-api"}
+{"level":"info","message":"::ffff:127.0.0.1 - - [08/Apr/2026:19:29:21 +0000] \"GET /nonexistent HTTP/1.1\" 404 28 \"-\" \"-\"","service":"acquisition-api"}

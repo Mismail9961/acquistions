@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "imports": {
+    "#src/*": "./src/*"
+  },
   "scripts": {
     "dev": "node --watch src/index.js",
     "start": "node src/index.js",
@@ -13,7 +16,9 @@
     "db:generate": "drizzle-kit generate",
     "db:migrate": "drizzle-kit migrate",
     "db:studio": "drizzle-kit studio",
-    "dev:docker": "sh ./scripts/dev.sh"
+    "dev:docker": "sh ./scripts/dev.sh",
+    "prod:docker": "sh ./scripts/prod.sh",
+    "test": "NODE_OPTIONS=--experimental-vm-modules jest"
   },
   "repository": {
     "type": "git",
@@ -48,6 +53,8 @@
     "drizzle-kit": "^0.31.10",
     "eslint": "^10.1.0",
     "eslint-config-prettier": "^10.1.8",
-    "prettier": "^3.8.1"
+    "jest": "^30.3.0",
+    "prettier": "^3.8.1",
+    "supertest": "^7.2.2"
   }
 }
