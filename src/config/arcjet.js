@@ -4,9 +4,9 @@ const botRule =
   process.env.ARCJET_BOT_MODE === 'off'
     ? null
     : detectBot({
-      mode: process.env.ARCJET_BOT_MODE === 'dry_run' ? 'DRY_RUN' : 'LIVE',
-      deny: ['CATEGORY:BOTNET'],
-    });
+        mode: process.env.ARCJET_BOT_MODE === 'dry_run' ? 'DRY_RUN' : 'LIVE',
+        deny: ['CATEGORY:BOTNET'],
+      });
 
 const aj = arcjet({
   key: process.env.ARCJET_KEY,
