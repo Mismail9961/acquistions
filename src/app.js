@@ -26,7 +26,7 @@ app.use((req, res, next) => {
       if (rawData.length === 0) return next();
       try {
         req.body = JSON.parse(rawData);
-      } catch (err) {
+      } catch {
         req.body = rawData;
       }
       next();
@@ -58,6 +58,6 @@ app.use('/api/users', userRoutes);
 
 app.use((req,res) => {
   res.status(404).json({ error: 'Router not found' });
-})
+});
 
 export default app;

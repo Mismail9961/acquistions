@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1775837491466" clover="3.2.0">
-  <project timestamp="1775837491466" name="All files">
-    <metrics statements="480" coveredstatements="241" conditionals="28" coveredconditionals="7" methods="15" coveredmethods="2" elements="523" coveredelements="250" complexity="0" loc="480" ncloc="480" packages="8" files="13" classes="13"/>
+<coverage generated="1775841251557" clover="3.2.0">
+  <project timestamp="1775841251557" name="All files">
+    <metrics statements="478" coveredstatements="239" conditionals="28" coveredconditionals="7" methods="15" coveredmethods="2" elements="521" coveredelements="248" complexity="0" loc="478" ncloc="478" packages="8" files="13" classes="13"/>
     <package name="src">
       <metrics statements="63" coveredstatements="53" conditionals="11" coveredconditionals="6" methods="1" coveredmethods="1"/>
       <file name="app.js" path="/home/sheikh-muhammad-ismail/Desktop/acquistions/src/app.js">
@@ -72,24 +72,24 @@
       </file>
     </package>
     <package name="src.config">
-      <metrics statements="74" coveredstatements="66" conditionals="6" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <metrics statements="73" coveredstatements="65" conditionals="6" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="arcjet.js" path="/home/sheikh-muhammad-ismail/Desktop/acquistions/src/config/arcjet.js">
-        <metrics statements="25" coveredstatements="24" conditionals="3" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <metrics statements="24" coveredstatements="23" conditionals="3" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
-        <line num="4" count="1" type="stmt"/>
-        <line num="5" count="0" type="cond" truecount="0" falsecount="1"/>
-        <line num="6" count="1" type="stmt"/>
-        <line num="7" count="1" type="cond" truecount="0" falsecount="1"/>
+        <line num="4" count="0" type="cond" truecount="0" falsecount="1"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="6" count="1" type="cond" truecount="0" falsecount="1"/>
+        <line num="7" count="1" type="stmt"/>
         <line num="8" count="1" type="stmt"/>
         <line num="9" count="1" type="stmt"/>
         <line num="10" count="1" type="stmt"/>
         <line num="11" count="1" type="stmt"/>
         <line num="12" count="1" type="stmt"/>
         <line num="13" count="1" type="stmt"/>
-        <line num="14" count="1" type="stmt"/>
-        <line num="15" count="1" type="cond" truecount="0" falsecount="1"/>
+        <line num="14" count="1" type="cond" truecount="0" falsecount="1"/>
+        <line num="15" count="1" type="stmt"/>
         <line num="16" count="1" type="stmt"/>
         <line num="17" count="1" type="stmt"/>
         <line num="18" count="1" type="stmt"/>
@@ -99,7 +99,6 @@
         <line num="22" count="1" type="stmt"/>
         <line num="23" count="1" type="stmt"/>
         <line num="24" count="1" type="stmt"/>
-        <line num="25" count="1" type="stmt"/>
       </file>
       <file name="database.js" path="/home/sheikh-muhammad-ismail/Desktop/acquistions/src/config/database.js">
         <metrics statements="19" coveredstatements="12" conditionals="2" coveredconditionals="0" methods="0" coveredmethods="0"/>
@@ -458,9 +457,9 @@
       </file>
     </package>
     <package name="src.utils">
-      <metrics statements="57" coveredstatements="21" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="0"/>
+      <metrics statements="56" coveredstatements="20" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="0"/>
       <file name="cookies.js" path="/home/sheikh-muhammad-ismail/Desktop/acquistions/src/utils/cookies.js">
-        <metrics statements="23" coveredstatements="13" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="0"/>
+        <metrics statements="22" coveredstatements="12" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="0"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="0" type="stmt"/>
@@ -483,7 +482,6 @@
         <line num="20" count="0" type="stmt"/>
         <line num="21" count="0" type="stmt"/>
         <line num="22" count="1" type="stmt"/>
-        <line num="23" count="1" type="stmt"/>
       </file>
       <file name="format.js" path="/home/sheikh-muhammad-ismail/Desktop/acquistions/src/utils/format.js">
         <metrics statements="7" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>

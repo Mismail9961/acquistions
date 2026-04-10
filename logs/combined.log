@@ -102,3 +102,6 @@
 {"level":"info","message":"::ffff:127.0.0.1 - - [10/Apr/2026:16:11:30 +0000] \"GET /health HTTP/1.1\" 200 75 \"-\" \"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36\"","service":"acquisition-api"}
 {"level":"info","message":"::ffff:127.0.0.1 - - [10/Apr/2026:16:11:31 +0000] \"GET /api HTTP/1.1\" 200 45 \"-\" \"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36\"","service":"acquisition-api"}
 {"level":"info","message":"::ffff:127.0.0.1 - - [10/Apr/2026:16:11:31 +0000] \"GET /nonexistent HTTP/1.1\" 404 28 \"-\" \"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36\"","service":"acquisition-api"}
+{"level":"info","message":"::ffff:127.0.0.1 - - [10/Apr/2026:17:14:10 +0000] \"GET /health HTTP/1.1\" 200 75 \"-\" \"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36\"","service":"acquisition-api"}
+{"level":"info","message":"::ffff:127.0.0.1 - - [10/Apr/2026:17:14:11 +0000] \"GET /api HTTP/1.1\" 200 45 \"-\" \"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36\"","service":"acquisition-api"}
+{"level":"info","message":"::ffff:127.0.0.1 - - [10/Apr/2026:17:14:11 +0000] \"GET /nonexistent HTTP/1.1\" 404 28 \"-\" \"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36\"","service":"acquisition-api"}
