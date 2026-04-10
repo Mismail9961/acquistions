@@ -7,17 +7,10 @@ const securityMiddleware = async (req, res, next) => {
     const role = req.user?.role || 'guest';
 
     let limit;
-
     switch (role) {
-      case 'admin':
-        limit = 20;
-        break;
-      case 'user':
-        limit = 10;
-        break;
-      case 'guest':
-        limit = 5;
-        break;
+      case 'admin': limit = 20; break;
+      case 'user':  limit = 10; break;
+      case 'guest': limit = 5;  break;
     }
 
     const client = aj.withRule(
@@ -29,7 +22,7 @@ const securityMiddleware = async (req, res, next) => {
       })
     );
 
-    const decision = await client.protect(req);
+    const decision = await client.protect(req, { requested: 1 });
 
     if (decision.isDenied() && decision.reason.isBot()) {
       logger.warn('Bot request blocked', {
@@ -37,29 +30,23 @@ const securityMiddleware = async (req, res, next) => {
         userAgent: req.get('User-Agent'),
         path: req.path,
       });
-
-      return res
-        .status(403)
-        .json({
-          error: 'Forbidden',
-          message: 'Automated requests are not allowed',
-        });
+      return res.status(403).json({
+        error: 'Forbidden',
+        message: 'Automated requests are not allowed',
+      });
     }
 
     if (decision.isDenied() && decision.reason.isShield()) {
-      logger.warn('Shield Blocked request', {
+      logger.warn('Shield blocked request', {
         ip: req.ip,
         userAgent: req.get('User-Agent'),
         path: req.path,
         method: req.method,
       });
-
-      return res
-        .status(403)
-        .json({
-          error: 'Forbidden',
-          message: 'Request blocked by security policy',
-        });
+      return res.status(403).json({
+        error: 'Forbidden',
+        message: 'Request blocked by security policy',
+      });
     }
 
     if (decision.isDenied() && decision.reason.isRateLimit()) {
@@ -68,21 +55,20 @@ const securityMiddleware = async (req, res, next) => {
         userAgent: req.get('User-Agent'),
         path: req.path,
       });
-
-      return res
-        .status(403)
-        .json({ error: 'Forbidden', message: 'Too many requests' });
+      return res.status(429).json({ 
+        error: 'Too Many Requests',
+        message: 'Too many requests',
+      });
     }
 
     next();
   } catch (e) {
-    console.error('Arcjet middleware error:', e);
-    res
-      .status(500)
-      .json({
-        errro: 'Internal server error',
-        message: 'Something went wrong with security middleware',
-      });
+    logger.error('Arcjet middleware error:', e);
+    res.status(500).json({
+      error: 'Internal Server Error',  
+      message: 'Something went wrong with security middleware',
+    });
   }
 };
+
 export default securityMiddleware;
