@@ -2,7 +2,7 @@ import logger from '../config/logger.js';
 import bcrypt from 'bcrypt';
 import database from '../config/database.js';
 
-export const hashPassword = async (password) => {
+export const hashPassword = async password => {
   try {
     return await bcrypt.hash(password, 10);
   } catch (err) {
@@ -63,7 +63,9 @@ export const createUser = async (name, email, password, role = 'user') => {
     );
 
     const newUser = insertedUsers[0];
-    logger.info(`User created with email: ${email}, name: ${name}, role: ${role}`);
+    logger.info(
+      `User created with email: ${email}, name: ${name}, role: ${role}`
+    );
     return newUser;
   } catch (err) {
     logger.error('Error creating user', err);

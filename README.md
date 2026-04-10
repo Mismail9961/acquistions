@@ -4,11 +4,11 @@ Node.js (Express) API using Drizzle ORM and [Neon](https://neon.com) Postgres.
 
 ## How database access works
 
-| Environment | `DATABASE_URL` points to | Neon Local |
-|-------------|-------------------------|------------|
+| Environment              | `DATABASE_URL` points to                       | Neon Local                          |
+| ------------------------ | ---------------------------------------------- | ----------------------------------- |
 | **Development (Docker)** | `neon-local` (Compose service) — proxy to Neon | Yes — ephemeral branches by default |
-| **Development (host)** | `localhost:5432` — same proxy, port published | Yes (container) |
-| **Production** | `*.neon.tech` (Neon Cloud) | No |
+| **Development (host)**   | `localhost:5432` — same proxy, port published  | Yes (container)                     |
+| **Production**           | `*.neon.tech` (Neon Cloud)                     | No                                  |
 
 The app always reads **`DATABASE_URL`** from the environment. Switching dev vs prod is done by **which file or secret store** supplies that variable, not by changing application code.
 
@@ -73,7 +73,6 @@ Neon Local runs as a container that proxies to Neon and can **create an ephemera
    ```
 
 2. In `.env.development` (or `.env`):
-
    - `DATABASE_URL=postgres://neon:npg@localhost:5432/neondb`
    - `NEON_LOCAL=true`
    - `NEON_LOCAL_HOST=localhost`
@@ -106,25 +105,25 @@ Neon Local runs as a container that proxies to Neon and can **create an ephemera
 
 ## Docker images
 
-| File | Purpose |
-|------|--------|
-| `Dockerfile` | Multi-stage: `development` (full deps + `node --watch`), `production` (prod deps only, default target) |
-| `docker-compose.dev.yml` | `app` + `neon-local` |
-| `docker-compose.prod.yml` | `app` only, `DATABASE_URL` → Neon Cloud |
-| `docker-compose.yml` | Includes the dev stack for a simple `docker compose up` |
+| File                      | Purpose                                                                                                |
+| ------------------------- | ------------------------------------------------------------------------------------------------------ |
+| `Dockerfile`              | Multi-stage: `development` (full deps + `node --watch`), `production` (prod deps only, default target) |
+| `docker-compose.dev.yml`  | `app` + `neon-local`                                                                                   |
+| `docker-compose.prod.yml` | `app` only, `DATABASE_URL` → Neon Cloud                                                                |
+| `docker-compose.yml`      | Includes the dev stack for a simple `docker compose up`                                                |
 
 ---
 
 ## Environment variables (summary)
 
-| Variable | Development (Neon Local) | Production |
-|----------|---------------------------|------------|
-| `DATABASE_URL` | `postgres://neon:npg@neon-local:5432/...` (Compose) or `@localhost` (host app) | Neon Cloud URL |
-| `NEON_LOCAL` | `true` | unset / omitted |
-| `NEON_LOCAL_HOST` | `neon-local` or `localhost` | unset |
-| `NEON_API_KEY` | Required for **Neon Local** container | Not used by app container |
-| `NEON_PROJECT_ID` | Required for **Neon Local** container | Not used by app container |
-| `PARENT_BRANCH_ID` | Optional; parent for **ephemeral** branches | N/A |
+| Variable           | Development (Neon Local)                                                       | Production                |
+| ------------------ | ------------------------------------------------------------------------------ | ------------------------- |
+| `DATABASE_URL`     | `postgres://neon:npg@neon-local:5432/...` (Compose) or `@localhost` (host app) | Neon Cloud URL            |
+| `NEON_LOCAL`       | `true`                                                                         | unset / omitted           |
+| `NEON_LOCAL_HOST`  | `neon-local` or `localhost`                                                    | unset                     |
+| `NEON_API_KEY`     | Required for **Neon Local** container                                          | Not used by app container |
+| `NEON_PROJECT_ID`  | Required for **Neon Local** container                                          | Not used by app container |
+| `PARENT_BRANCH_ID` | Optional; parent for **ephemeral** branches                                    | N/A                       |
 
 ---
 

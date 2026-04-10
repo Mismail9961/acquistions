@@ -11,12 +11,12 @@ services:
       dockerfile: Dockerfile
       target: production
     ports:
-      - "${APP_PORT:-3000}:3000"
+      - '${APP_PORT:-3000}:3000'
     env_file:
       - .env.production
     environment:
       NODE_ENV: production
       # Must match the right-hand port in `ports:` below. If .env.production sets PORT to e.g. 8080,
       # the app would listen on 8080 inside the container while we publish 3000 → nothing on :3000.
-      PORT: "3000"
+      PORT: '3000'
     restart: unless-stopped

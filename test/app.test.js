@@ -22,12 +22,12 @@ describe('API ENDPOINT ', () => {
 
   describe('GET /api', () => {
     it('should return Api message', async () => {
-      const res = await request(app)
-        .get('/api')
-        .set(arcjetHeaders)
-        .expect(200);
+      const res = await request(app).get('/api').set(arcjetHeaders).expect(200);
 
-      expect(res.body).toHaveProperty('message', 'Welcome to the Acquisitions API');
+      expect(res.body).toHaveProperty(
+        'message',
+        'Welcome to the Acquisitions API'
+      );
     });
   });
 

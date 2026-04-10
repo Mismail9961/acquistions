@@ -5,7 +5,6 @@ import { createUser, authenticateUser } from '../services/auth.service.js';
 import { jwtToken } from '../utils/jwt.js';
 import { cookies } from '../utils/cookies.js';
 
-
 export const signUp = async (req, res, next) => {
   try {
     let requestBody = req.body;
@@ -13,17 +12,26 @@ export const signUp = async (req, res, next) => {
       try {
         requestBody = JSON.parse(requestBody);
       } catch {
-        return res.status(400).json({ errors: 'Invalid JSON body', details: 'Could not parse request body as JSON' });
+        return res.status(400).json({
+          errors: 'Invalid JSON body',
+          details: 'Could not parse request body as JSON',
+        });
       }
     }
 
     if (requestBody == null || typeof requestBody !== 'object') {
-      return res.status(400).json({ errors: 'Invalid request body', details: 'Request body must be a JSON object' });
+      return res.status(400).json({
+        errors: 'Invalid request body',
+        details: 'Request body must be a JSON object',
+      });
     }
 
     const validationResult = signUpSchema.safeParse(requestBody);
     if (!validationResult.success) {
-      return res.status(400).json({ errors: 'Validation failed', details: formatValidationErrors(validationResult.error) });
+      return res.status(400).json({
+        errors: 'Validation failed',
+        details: formatValidationErrors(validationResult.error),
+      });
     }
 
     const { email, name, password, role } = validationResult.data;
@@ -33,8 +41,18 @@ export const signUp = async (req, res, next) => {
     const token = jwtToken().sign({ userId: user.id, role: user.role });
     cookies.set(res, {}, 'token', token);
 
-    logger.info(`User signed up with email: ${email}, name: ${name}, role: ${role}`);
-    res.status(201).json({ message: 'User created successfully', user: { id: user.id, email: user.email, name: user.name, role: user.role } });
+    logger.info(
+      `User signed up with email: ${email}, name: ${name}, role: ${role}`
+    );
+    res.status(201).json({
+      message: 'User created successfully',
+      user: {
+        id: user.id,
+        email: user.email,
+        name: user.name,
+        role: user.role,
+      },
+    });
   } catch (_) {
     logger.error('Error during sign-up', _);
     if (_.message === 'User with this email already exists') {
@@ -51,17 +69,26 @@ export const signIn = async (req, res, next) => {
       try {
         requestBody = JSON.parse(requestBody);
       } catch {
-        return res.status(400).json({ errors: 'Invalid JSON body', details: 'Could not parse request body as JSON' });
+        return res.status(400).json({
+          errors: 'Invalid JSON body',
+          details: 'Could not parse request body as JSON',
+        });
       }
     }
 
     if (requestBody == null || typeof requestBody !== 'object') {
-      return res.status(400).json({ errors: 'Invalid request body', details: 'Request body must be a JSON object' });
+      return res.status(400).json({
+        errors: 'Invalid request body',
+        details: 'Request body must be a JSON object',
+      });
     }
 
     const validationResult = signInSchema.safeParse(requestBody);
     if (!validationResult.success) {
-      return res.status(400).json({ errors: 'Validation failed', details: formatValidationErrors(validationResult.error) });
+      return res.status(400).json({
+        errors: 'Validation failed',
+        details: formatValidationErrors(validationResult.error),
+      });
     }
 
     const { email, password } = validationResult.data;
@@ -71,7 +98,15 @@ export const signIn = async (req, res, next) => {
     cookies.set(res, {}, 'token', token);
 
     logger.info(`User signed in with email: ${email}`);
-    res.status(200).json({ message: 'User Signed in Successfully', user: { id: user.id, email: user.email, name: user.name, role: user.role } });
+    res.status(200).json({
+      message: 'User Signed in Successfully',
+      user: {
+        id: user.id,
+        email: user.email,
+        name: user.name,
+        role: user.role,
+      },
+    });
   } catch (_) {
     logger.error('Error during sign-in', _);
     if (_.message === 'Invalid credentials') {

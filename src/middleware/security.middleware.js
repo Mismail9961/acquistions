@@ -8,9 +8,15 @@ const securityMiddleware = async (req, res, next) => {
 
     let limit;
     switch (role) {
-      case 'admin': limit = 20; break;
-      case 'user':  limit = 10; break;
-      case 'guest': limit = 5;  break;
+      case 'admin':
+        limit = 20;
+        break;
+      case 'user':
+        limit = 10;
+        break;
+      case 'guest':
+        limit = 5;
+        break;
     }
 
     const client = aj.withRule(
@@ -55,7 +61,7 @@ const securityMiddleware = async (req, res, next) => {
         userAgent: req.get('User-Agent'),
         path: req.path,
       });
-      return res.status(429).json({ 
+      return res.status(429).json({
         error: 'Too Many Requests',
         message: 'Too many requests',
       });
@@ -65,7 +71,7 @@ const securityMiddleware = async (req, res, next) => {
   } catch (e) {
     logger.error('Arcjet middleware error:', e);
     res.status(500).json({
-      error: 'Internal Server Error',  
+      error: 'Internal Server Error',
       message: 'Something went wrong with security middleware',
     });
   }

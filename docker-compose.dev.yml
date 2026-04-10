@@ -10,7 +10,7 @@ services:
     env_file:
       - .env.development
     ports:
-      - "${NEON_LOCAL_HOST_PORT:-5432}:5432"
+      - '${NEON_LOCAL_HOST_PORT:-5432}:5432'
     # NEON_API_KEY, NEON_PROJECT_ID, optional PARENT_BRANCH_ID / BRANCH_ID: set in .env.development
 
   app:
@@ -19,11 +19,11 @@ services:
       dockerfile: Dockerfile
       target: development
     ports:
-      - "${APP_PORT:-3000}:3000"
+      - '${APP_PORT:-3000}:3000'
     env_file:
       - .env.development
     environment:
-      NEON_LOCAL: "true"
+      NEON_LOCAL: 'true'
       NEON_LOCAL_HOST: neon-local
     depends_on:
       - neon-local
