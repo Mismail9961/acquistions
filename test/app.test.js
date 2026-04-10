@@ -2,7 +2,6 @@ import request from 'supertest';
 import app from '../src/app.js';
 
 describe('API ENDPOINT ', () => {
-  // Common headers to satisfy Arcjet rules
   const arcjetHeaders = {
     'user-agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36',
   };
